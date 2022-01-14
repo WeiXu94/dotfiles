@@ -1,0 +1,12 @@
+[credential]
+	helper = manager-core
+[difftool "sourcetree"]
+	cmd = '' \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+	cmd = "'' "
+	trustExitCode = true
+[user]
+	name = weixu
+	email = 18810185614@163.com
+[credential "helperselector"]
+	selected = manager-core

@@ -1,0 +1,167 @@
+/* Implement counters and numbering for h1-h6 titles */
+body {
+  counter-reset: h2;
+}
+
+h1 {
+  /* background-color: #46515c;
+  color: white; */
+  border-bottom: none
+}
+
+h2 {
+  counter-reset: h3;
+  color: #00ace6;
+  border-bottom: 1px solid #ccc
+}
+
+h3 {
+  counter-reset: h4;
+  color: #00ace6;
+}
+
+h4 {
+  counter-reset: h5;
+  color: #00ace6;
+}
+
+h5 {
+  counter-reset: h6;
+  color: #00ace6;
+}
+
+h2:before {
+  content: counter(h2, decimal) ". ";
+  counter-increment: h2;
+}
+
+h3:before {
+  content: counter(h2, decimal) "." counter(h3, decimal) ". ";
+  counter-increment: h3;
+}
+
+/* h4:before {
+  content: counter(h2, decimal) "." counter(h3, decimal) "." counter(h4, decimal) ". ";
+  counter-increment: h4;
+}
+
+h5:before {
+  content: counter(h2, decimal) "." counter(h3, decimal) "." counter(h4, decimal) "." counter(h5, decimal) ". ";
+  counter-increment: h5;
+}
+
+h6:before {
+  content: counter(h2, decimal) "." counter(h3, decimal) "." counter(h4, decimal) "." counter(h5, decimal) "."
+    counter(h6, decimal) ". ";
+  counter-increment: h6;
+} */
+
+
+/* For styling the rendered Markdown */
+nav.table-of-contents ul {
+	list-style-type: none;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+nav.table-of-contents>ul {
+
+	top: 5px;
+	right: 0px;
+	z-index: 99;
+	
+	font-size: 12px;
+	position: fixed;
+	padding: 15px;
+	
+	border-radius: 10px 0px 0px 10px;
+	margin: 0px;
+	
+	overflow: hidden;
+	height: 90%;
+	width: 5px;
+	transition: .2s;
+}
+
+nav.table-of-contents::after {
+	content: "[TOC - move your cursor to the right edge]";
+	color: black;
+}
+
+nav.table-of-contents>ul:hover {
+	background: #F8F8F8;
+	box-shadow: -5px 0px 10px 0px rgba(0,0,0,0.15);
+
+	width: 30%;
+	color: none;
+	overflow: scroll;
+}
+
+nav.table-of-contents>ul:hover::before {
+	content: "TABLE OF CONTENTS"
+}
+
+nav.table-of-contents>ul:hover li {
+	display: list-item;
+}
+
+nav.table-of-contents a {
+    text-decoration: none;
+}
+
+nav.table-of-contents li {
+	display: none;
+	white-space: nowrap;
+	overflow: hidden;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+#rendered-md {
+	width: 100%;
+}
+
+
+pre {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-left: 3px solid #f36d33;
+  color: #666;
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em 1.5em;
+  display: block;
+  word-wrap: break-word;
+}
+
+.inline-code {
+  color: red;
+}
+
+/* a way to add line numbers for code block, but it doesn't work. */
+
+/* pre.code::before {
+  counter-reset: listing;
+}
+
+pre.code code {
+  counter-increment: listing;
+  text-align: left;
+  float: left;
+  clear: left;
+} */
+
+/* pre.code code::before {
+  content: counter(listing) ". ";
+  display: inline-block;
+  width: 8em;
+  padding-left: auto;
+  margin-left: auto;
+  text-align: right;
+} */

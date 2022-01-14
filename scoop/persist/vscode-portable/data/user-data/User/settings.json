@@ -1,0 +1,160 @@
+{
+    //"editor.fontFamily":"monaco",
+    "editor.fontSize": 20,
+    //latex
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.synctex.afterBuild.enabled":true,
+    "latex-workshop.latex.tools": [
+        {
+          "name": "texify",
+          "command": "texify",
+          "args": [
+            "--synctex",
+            "--pdf",
+            "--tex-option=\"-interaction=nonstopmode\"",
+            "--tex-option=\"-file-line-error\"",
+            "%DOC%.tex"
+          ]
+        },
+        {
+            // 编译工具和命令
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOC%"
+            ]
+        }
+    ], 
+    
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdflatex",
+            "tools": [
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "pdflatex-bibtex-pdflatex2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "xelatex",
+            "tools": [
+                "xelatex"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "tools": [
+                "bibtex"
+            ]
+        },
+        {
+            "name": "xe->bib->xe->xe",
+            "tools": [
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
+            ]
+        },
+        {
+            "name": "Compile Rnw files",
+            "tools": [
+                "rnw2tex",
+                "latexmk"
+            ]
+        },
+        {
+            "name": "Compile Jnw files",
+            "tools": [
+                "jnw2tex",
+                "latexmk"
+            ]
+        }
+    ],
+    "latex-workshop.view.pdf.viewer": "external",
+    "latex-workshop.view.pdf.external.viewer.command": "C:\\Users\\weixu\\scoop\\apps\\sumatrapdf\\current\\SumatraPDF.exe", // 注意修改路径
+    "latex-workshop.view.pdf.external.viewer.args": [
+        "%PDF%"
+    ],
+    "latex-workshop.view.pdf.external.synctex.command": "C:\\Users\\weixu\\scoop\\apps\\sumatrapdf\\current\\SumatraPDF.exe", // 注意修改路径
+    "latex-workshop.view.pdf.external.synctex.args": [
+        "-forward-search",
+        "%TEX%",
+        "%LINE%",
+        "-reuse-instance",
+        "-inverse-search",
+        //"\"D:\\Microsoft VS Code\\Code.exe\" -r -g \"%f:%l\"", //无cli版本，需外界启动
+        "code \"C:\\Users\\weixu\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\out\\cli.js\" -r -g \"%f:%l\"", //有cli，必须内部启动
+        "%PDF%"
+    ],
+    "files.autoSave": "afterDelay",
+    //stata
+    "code-runner.executorMapByFileExtension": {
+        ".do": "C:\\Users\\weixu\\ado\\personal\\rundo51\\rundo.exe"
+    },
+    "code-runner.customCommand": "C:\\Users\\weixu\\ado\\personal\\rundolines51\\rundolines.exe",
+    "stataRun.stataPath": "C:\\Users\\weixu\\PortableSoft\\Stata16\\StataMP-64.exe",
+    "stataRun.whichApp": "stataMP",
+    "stataRun.pasteSpeed": 1,
+    "stataRun.advancePosition": false,
+    "update.mode": "none",
+    "extensions.ignoreRecommendations": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "security.workspace.trust.enabled": false,
+    "kite.showWelcomeNotificationOnStartup": false,
+    //"matlab.mlintpath": "D:\\\\software\\\\matlab2020\\\\bin\\\\win64\\\\mlint.exe",
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    //markdown
+    "[markdown]": {
+        // 快速补全
+        "editor.quickSuggestions": {
+          "other": true,
+          "comments": true,
+          "strings": true
+        },
+        // 显示空格
+        //"editor.renderWhitespace": "all",
+        // snippet 提示优先（看个人喜欢）
+        "editor.snippetSuggestions": "top",
+        "editor.tabCompletion": "on",
+        // 使用enter 接受提示
+        // "editor.acceptSuggestionOnEnter": "on",
+    },
+    "timeline.excludeSources": [],
+    "explorer.confirmDelete": false,
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.editor.pinnedTabSizing": "shrink",
+    "workbench.editor.splitInGroupLayout": "vertical",
+    "editor.fontFamily": "Hack NF, Consolas, 'Courier New', monospace",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+}
